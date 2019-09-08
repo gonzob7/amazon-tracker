@@ -1,3 +1,5 @@
+import sys
+from termcolor import colored, cprint
 import requests
 from bs4 import BeautifulSoup
 
@@ -11,5 +13,10 @@ soup1 = BeautifulSoup(page.content, "html.parser")
 soup2 = BeautifulSoup(soup1.prettify(), "html.parser")
 
 title = soup2.find(id= "productTitle").get_text()
+price = soup2.find(id = "priceblock_ourprice").get_text()
+converted_price = price[0:7]
 
+print('')
 print(title.strip())
+print(colored(converted_price, 'green'))
+print('')
