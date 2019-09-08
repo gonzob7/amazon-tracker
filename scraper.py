@@ -1,3 +1,4 @@
+import time
 import smtplib
 import sys
 from termcolor import colored, cprint
@@ -54,4 +55,7 @@ def send_email():
 
 
 
-check_price()
+
+while(True):
+    check_price()
+    time.sleep(60*60)
